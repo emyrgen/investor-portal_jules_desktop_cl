@@ -5670,6 +5670,40 @@
   }
 </style>
 
+
+<style id="v19-15-slider-below-hero-cta-above-offer">
+  /* v19.15 — aircraft slider belongs below hero CTA / above the Offer section */
+  #hero {
+    padding-bottom: 0 !important;
+  }
+
+  #hero .hero-content {
+    padding-bottom: 2.75rem !important;
+  }
+
+  #hero .hero-airframe-top {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Remove the old below-offer positioning rule if it matched before. */
+  #offer + .hero-airframe-top {
+    margin-top: initial !important;
+    margin-bottom: initial !important;
+  }
+
+  @media (max-width: 820px) {
+    #hero .hero-content {
+      padding-bottom: 2rem !important;
+    }
+
+    #hero .hero-airframe-top {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+  }
+</style>
+
 </head>
 <body style="background:#050608; color:#e5e7eb;">
 <!-- ─── NAVIGATION ───────────────────────────────── -->
@@ -5736,51 +5770,9 @@
 <a class="btn-ghost" href="#offer">See the Offer</a>
 </div>
 </div>
-</section>
-<!-- ─── THE OFFER (NEW v17) ──────────────────────────── -->
-<section id="offer">
-<div class="offer-wrap">
-<div class="offer-header">
-<div class="section-tag">The Offer</div>
-<h2 class="section-title">What You're <em>Buying Into</em></h2>
-</div>
-<div class="offer-bento">
-<div class="offer-tile feature">
-<div class="offer-tile-label">Investment Vehicle</div>
-<div class="offer-tile-value">SAFE</div>
-<div class="offer-tile-text">Simple Agreement for Future Equity in EMYRGEN GROUP, INC. Standard YC-format. Reviewed before any funds wired. Quarterly written updates from the founder.</div>
-</div>
-<div class="offer-tile">
-<div class="offer-tile-label">Round Type</div>
-<div class="offer-tile-value">F&amp;F Pre-Seed</div>
-<div class="offer-tile-text">Private. Friends and family only.</div>
-</div>
-<div class="offer-tile">
-<div class="offer-tile-label">Target Close</div>
-<div class="offer-tile-value">June 2026</div>
-<div class="offer-tile-text">Closing in weeks — not months.</div>
-</div>
-<div class="offer-tile">
-<div class="offer-tile-label">Use of Funds</div>
-<div class="offer-tile-value">Autopilot v1</div>
-<div class="offer-tile-text">Conversion Kit v1, mission software, partner deployments.</div>
-</div>
-<div class="offer-tile">
-<div class="offer-tile-label">Asset</div>
-<div class="offer-tile-value">The IP Stack</div>
-<div class="offer-tile-text">Autonomy software, conversion architecture, partner network.</div>
-</div>
-</div>
-<div class="offer-cta-row">
-<a class="btn-primary" href="#" data-open-signup>Start Investor Signup</a>
-<a class="btn-ghost" href="#logistics">How Investing Works</a>
-</div>
-</div>
-</section>
-<!-- ─── WHY NOW (NEW v17) ────────────────────────────── -->
 
-<!-- v19.11: Aircraft slider moved below Offer section -->
-<!-- Aircraft slider: moved below Offer section -->
+<!-- v19.15: Aircraft slider moved below hero CTA / above Offer section -->
+<!-- Aircraft slider: below hero CTA, above Offer -->
 <div class="hero-airframe-top">
 <div class="media-frame mobile-bleed hero-airframe-frame hero-airframe-carousel" aria-label="Compatible airframes gallery playback">
 <div class="hero-airframe-stage">
@@ -5854,6 +5846,49 @@
 </div>
 </div>
 <!-- /hero-airframe-top -->
+</section>
+<!-- ─── THE OFFER (NEW v17) ──────────────────────────── -->
+<section id="offer">
+<div class="offer-wrap">
+<div class="offer-header">
+<div class="section-tag">The Offer</div>
+<h2 class="section-title">What You're <em>Buying Into</em></h2>
+</div>
+<div class="offer-bento">
+<div class="offer-tile feature">
+<div class="offer-tile-label">Investment Vehicle</div>
+<div class="offer-tile-value">SAFE</div>
+<div class="offer-tile-text">Simple Agreement for Future Equity in EMYRGEN GROUP, INC. Standard YC-format. Reviewed before any funds wired. Quarterly written updates from the founder.</div>
+</div>
+<div class="offer-tile">
+<div class="offer-tile-label">Round Type</div>
+<div class="offer-tile-value">F&amp;F Pre-Seed</div>
+<div class="offer-tile-text">Private. Friends and family only.</div>
+</div>
+<div class="offer-tile">
+<div class="offer-tile-label">Target Close</div>
+<div class="offer-tile-value">June 2026</div>
+<div class="offer-tile-text">Closing in weeks — not months.</div>
+</div>
+<div class="offer-tile">
+<div class="offer-tile-label">Use of Funds</div>
+<div class="offer-tile-value">Autopilot v1</div>
+<div class="offer-tile-text">Conversion Kit v1, mission software, partner deployments.</div>
+</div>
+<div class="offer-tile">
+<div class="offer-tile-label">Asset</div>
+<div class="offer-tile-value">The IP Stack</div>
+<div class="offer-tile-text">Autonomy software, conversion architecture, partner network.</div>
+</div>
+</div>
+<div class="offer-cta-row">
+<a class="btn-primary" href="#" data-open-signup>Start Investor Signup</a>
+<a class="btn-ghost" href="#logistics">How Investing Works</a>
+</div>
+</div>
+</section>
+<!-- ─── WHY NOW (NEW v17) ────────────────────────────── -->
+
 
 <section id="whynow">
 <div class="whynow-wrap">
