@@ -5425,6 +5425,83 @@
   }
 </style>
 
+
+<style id="v19-11-slider-below-offer-position">
+  /* v19.11 — place aircraft slider as a full-width visual band below Offer */
+  #offer + .hero-airframe-top {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Keep the hero text clean now that the slider is no longer above it */
+  #hero .hero-content {
+    padding-top: 5rem !important;
+  }
+
+  @media (max-width: 820px) {
+    #hero .hero-content {
+      padding-top: 3rem !important;
+    }
+  }
+</style>
+
+
+<style id="v19-12-hero-video-under-header">
+  /* v19.12 — full-width video hero directly under fixed header */
+  .hero-video-band {
+    position: relative;
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    margin-top: 60px;
+    overflow: hidden;
+    background: #050608;
+    z-index: 2;
+  }
+
+  .hero-video-band::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(180deg, rgba(5,6,8,0.08), rgba(5,6,8,0.00) 32%, rgba(5,6,8,0.18) 100%);
+  }
+
+  .hero-video {
+    display: block;
+    width: 100%;
+    height: clamp(520px, 42vw, 760px);
+    object-fit: cover;
+    object-position: center center;
+    background: #050608;
+  }
+
+  /* The video now owns the top spacing, so the text hero should not add another nav offset. */
+  #hero {
+    margin-top: 0 !important;
+  }
+
+  @media (max-width: 820px) {
+    .hero-video-band {
+      margin-top: 60px;
+    }
+
+    .hero-video {
+      height: clamp(360px, 94vw, 520px);
+      object-fit: cover;
+      object-position: center center;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .hero-video {
+      height: clamp(330px, 98vw, 470px);
+    }
+  }
+</style>
+
 </head>
 <body style="background:#050608; color:#e5e7eb;">
 <!-- ─── NAVIGATION ───────────────────────────────── -->
@@ -5458,7 +5535,16 @@
 <a href="#products">IP Stack</a>
 <a href="#logistics">Process</a>
 <a class="mobile-menu-cta" href="#" data-open-signup>Investor Signup</a>
+
 </div>
+
+<!-- v19.12: Full-width hero video inserted directly under header/navigation -->
+<section class="hero-video-band" aria-label="EMYRGEN autonomous aircraft conversion video">
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata">
+    <source src="emyrgen-hero-video.webm" type="video/webm">
+  </video>
+</section>
+
 <!-- ─── HERO ─────────────────────────────────────── -->
 <section id="hero">
 <div class="hero-bg"></div>
@@ -5466,7 +5552,67 @@
 <div class="hero-lines"></div>
 <div class="hero-counter">E</div>
 
-<!-- v19.4: Slideshow moved to top of page, above hero text -->
+
+<div class="hero-content">
+<div class="hero-tag">SAFE Round · Closing June 2026</div>
+<h1 class="hero-h1">
+      Back the Company<br/>
+      Turning Helicopters<br/>
+<em>Into Autonomous Aircraft</em>
+</h1>
+<p class="hero-sub">
+      Private SAFE round. Invest in a conversion platform transforming proven helicopter airframes into autonomous, mission-ready aircraft.
+    </p>
+<div class="hero-actions">
+<a class="btn-primary" href="#" data-open-signup>Start Investor Signup</a>
+<a class="btn-ghost" href="#offer">See the Offer</a>
+</div>
+</div>
+</section>
+<!-- ─── THE OFFER (NEW v17) ──────────────────────────── -->
+<section id="offer">
+<div class="offer-wrap">
+<div class="offer-header">
+<div class="section-tag">The Offer</div>
+<h2 class="section-title">What You're <em>Buying Into</em></h2>
+</div>
+<div class="offer-bento">
+<div class="offer-tile feature">
+<div class="offer-tile-label">Investment Vehicle</div>
+<div class="offer-tile-value">SAFE</div>
+<div class="offer-tile-text">Simple Agreement for Future Equity in EMYRGEN GROUP, INC. Standard YC-format. Reviewed before any funds wired. Quarterly written updates from the founder.</div>
+</div>
+<div class="offer-tile">
+<div class="offer-tile-label">Round Type</div>
+<div class="offer-tile-value">F&amp;F Pre-Seed</div>
+<div class="offer-tile-text">Private. Friends and family only.</div>
+</div>
+<div class="offer-tile">
+<div class="offer-tile-label">Target Close</div>
+<div class="offer-tile-value">June 2026</div>
+<div class="offer-tile-text">Closing in weeks — not months.</div>
+</div>
+<div class="offer-tile">
+<div class="offer-tile-label">Use of Funds</div>
+<div class="offer-tile-value">Autopilot v1</div>
+<div class="offer-tile-text">Conversion Kit v1, mission software, partner deployments.</div>
+</div>
+<div class="offer-tile">
+<div class="offer-tile-label">Asset</div>
+<div class="offer-tile-value">The IP Stack</div>
+<div class="offer-tile-text">Autonomy software, conversion architecture, partner network.</div>
+</div>
+</div>
+<div class="offer-cta-row">
+<a class="btn-primary" href="#" data-open-signup>Start Investor Signup</a>
+<a class="btn-ghost" href="#logistics">How Investing Works</a>
+</div>
+</div>
+</section>
+<!-- ─── WHY NOW (NEW v17) ────────────────────────────── -->
+
+<!-- v19.11: Aircraft slider moved below Offer section -->
+<!-- Aircraft slider: moved below Offer section -->
 <div class="hero-airframe-top">
 <div class="media-frame mobile-bleed hero-airframe-frame hero-airframe-carousel" aria-label="Compatible airframes gallery playback">
 <div class="hero-airframe-stage">
@@ -5541,63 +5687,6 @@
 </div>
 <!-- /hero-airframe-top -->
 
-<div class="hero-content">
-<div class="hero-tag">SAFE Round · Closing June 2026</div>
-<h1 class="hero-h1">
-      Back the Company<br/>
-      Turning Helicopters<br/>
-<em>Into Autonomous Aircraft</em>
-</h1>
-<p class="hero-sub">
-      Private SAFE round. Invest in a conversion platform transforming proven helicopter airframes into autonomous, mission-ready aircraft.
-    </p>
-<div class="hero-actions">
-<a class="btn-primary" href="#" data-open-signup>Start Investor Signup</a>
-<a class="btn-ghost" href="#offer">See the Offer</a>
-</div>
-</div>
-</section>
-<!-- ─── THE OFFER (NEW v17) ──────────────────────────── -->
-<section id="offer">
-<div class="offer-wrap">
-<div class="offer-header">
-<div class="section-tag">The Offer</div>
-<h2 class="section-title">What You're <em>Buying Into</em></h2>
-</div>
-<div class="offer-bento">
-<div class="offer-tile feature">
-<div class="offer-tile-label">Investment Vehicle</div>
-<div class="offer-tile-value">SAFE</div>
-<div class="offer-tile-text">Simple Agreement for Future Equity in EMYRGEN GROUP, INC. Standard YC-format. Reviewed before any funds wired. Quarterly written updates from the founder.</div>
-</div>
-<div class="offer-tile">
-<div class="offer-tile-label">Round Type</div>
-<div class="offer-tile-value">F&amp;F Pre-Seed</div>
-<div class="offer-tile-text">Private. Friends and family only.</div>
-</div>
-<div class="offer-tile">
-<div class="offer-tile-label">Target Close</div>
-<div class="offer-tile-value">June 2026</div>
-<div class="offer-tile-text">Closing in weeks — not months.</div>
-</div>
-<div class="offer-tile">
-<div class="offer-tile-label">Use of Funds</div>
-<div class="offer-tile-value">Autopilot v1</div>
-<div class="offer-tile-text">Conversion Kit v1, mission software, partner deployments.</div>
-</div>
-<div class="offer-tile">
-<div class="offer-tile-label">Asset</div>
-<div class="offer-tile-value">The IP Stack</div>
-<div class="offer-tile-text">Autonomy software, conversion architecture, partner network.</div>
-</div>
-</div>
-<div class="offer-cta-row">
-<a class="btn-primary" href="#" data-open-signup>Start Investor Signup</a>
-<a class="btn-ghost" href="#logistics">How Investing Works</a>
-</div>
-</div>
-</section>
-<!-- ─── WHY NOW (NEW v17) ────────────────────────────── -->
 <section id="whynow">
 <div class="whynow-wrap">
 <div class="whynow-header">
