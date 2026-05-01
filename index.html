@@ -5204,6 +5204,109 @@
     font-weight: 600;
   }
 </style>
+
+<style id="v19-7-hero-slider-fullwidth-taller-transparent">
+  /* v19.7 — full-width taller hero slider, preserve transparent aircraft images */
+  .hero-airframe-top {
+    position: relative !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    padding: 0 !important;
+    left: auto !important;
+    right: auto !important;
+    background: transparent !important;
+    z-index: 2 !important;
+  }
+  .hero-airframe-top .media-frame.hero-airframe-frame,
+  #heroAirframeCarousel.hero-airframe-frame {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+  .hero-airframe-top .hero-airframe-carousel,
+  .hero-airframe-top .hero-airframe-stage {
+    width: 100vw !important;
+    max-width: 100vw !important;
+  }
+  .hero-airframe-top .hero-airframe-stage {
+    height: clamp(560px, 44vw, 720px) !important;
+    min-height: 560px !important;
+    max-height: 72vh !important;
+    aspect-ratio: auto !important;
+    overflow: hidden !important;
+    position: relative !important;
+    background: transparent !important;
+  }
+  .hero-airframe-top .hero-airframe-stage::before {
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0) 24%),
+      linear-gradient(180deg, rgba(7,13,22,0.00) 48%, rgba(7,13,22,0.72) 100%) !important;
+  }
+  .hero-airframe-top .hero-airframe-slides,
+  .hero-airframe-top .hero-airframe-slide,
+  .hero-airframe-top .hero-airframe-media {
+    width: 100% !important;
+    height: 100% !important;
+    background: transparent !important;
+  }
+  .hero-airframe-top .hero-airframe-media {
+    padding: clamp(1rem, 2vw, 1.5rem) clamp(1rem, 2.5vw, 2rem) clamp(5.4rem, 7vw, 7rem) !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .hero-airframe-top .hero-airframe-media img,
+  #heroAirframeCarousel .hero-airframe-media img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    display: block !important;
+    background: transparent !important;
+  }
+  @media (max-width: 820px) {
+    .hero-airframe-top {
+      width: 100vw !important;
+      max-width: 100vw !important;
+      margin-left: calc(50% - 50vw) !important;
+      margin-right: calc(50% - 50vw) !important;
+      background: transparent !important;
+    }
+    .hero-airframe-top .media-frame.hero-airframe-frame {
+      width: 100vw !important;
+      max-width: 100vw !important;
+      background: transparent !important;
+    }
+    #hero .hero-airframe-stage,
+    .hero-airframe-top .hero-airframe-stage {
+      height: clamp(430px, 118vw, 500px) !important;
+      min-height: 430px !important;
+      max-height: 62vh !important;
+      aspect-ratio: auto !important;
+      background: transparent !important;
+    }
+    #hero .hero-airframe-media,
+    .hero-airframe-top .hero-airframe-media {
+      background: transparent !important;
+      padding: 0.8rem 0.8rem 0 !important;
+    }
+    #hero .hero-airframe-slide img,
+    .hero-airframe-top .hero-airframe-slide img {
+      object-fit: contain !important;
+      object-position: center center !important;
+      background: transparent !important;
+    }
+  }
+</style>
+
 </head>
 <body style="background:#050608; color:#e5e7eb;">
 <!-- ─── NAVIGATION ───────────────────────────────── -->
