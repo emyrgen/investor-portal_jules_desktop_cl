@@ -5561,6 +5561,115 @@
   }
 </style>
 
+
+<style id="v19-14-video-desktop-normal-mobile-fullwidth">
+  /* v19.14 — desktop normal-size video; mobile true edge-to-edge full width */
+
+  /* Desktop/tablet default: do NOT force video to full desktop width.
+     Keep the 1280×720 source clean and centered. */
+  .hero-video-band {
+    position: relative !important;
+    width: min(100%, 1280px) !important;
+    max-width: 1280px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 60px !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+    aspect-ratio: auto !important;
+    overflow: visible !important;
+    background: #050608 !important;
+    line-height: 0 !important;
+  }
+
+  .hero-video-band::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  .hero-video {
+    display: block !important;
+    width: 100% !important;
+    max-width: 1280px !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    background: #050608 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Remove excessive vertical gap after the video before the text hero. */
+  #hero {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  #hero .hero-content {
+    padding-top: 2.5rem !important;
+  }
+
+  /* Mobile: force true viewport-width video, edge to edge.
+     No left/right white/black side gutters from parent containers. */
+  @media (max-width: 820px) {
+    .hero-video-band {
+      width: 100vw !important;
+      max-width: 100vw !important;
+      margin-left: calc(50% - 50vw) !important;
+      margin-right: calc(50% - 50vw) !important;
+      margin-top: 60px !important;
+      margin-bottom: 0 !important;
+      padding: 0 !important;
+      height: auto !important;
+      aspect-ratio: auto !important;
+      overflow: visible !important;
+      background: #050608 !important;
+      line-height: 0 !important;
+    }
+
+    .hero-video {
+      display: block !important;
+      width: 100vw !important;
+      max-width: 100vw !important;
+      height: auto !important;
+      aspect-ratio: 16 / 9 !important;
+      object-fit: contain !important;
+      object-position: center center !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      border: 0 !important;
+    }
+
+    #hero .hero-content {
+      padding-top: 2rem !important;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .hero-video-band {
+      width: 100vw !important;
+      max-width: 100vw !important;
+      margin-left: calc(50% - 50vw) !important;
+      margin-right: calc(50% - 50vw) !important;
+      padding: 0 !important;
+    }
+
+    .hero-video {
+      width: 100vw !important;
+      max-width: 100vw !important;
+      height: auto !important;
+      object-fit: contain !important;
+      object-position: center center !important;
+    }
+
+    #hero .hero-content {
+      padding-top: 1.75rem !important;
+    }
+  }
+</style>
+
 </head>
 <body style="background:#050608; color:#e5e7eb;">
 <!-- ─── NAVIGATION ───────────────────────────────── -->
