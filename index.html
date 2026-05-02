@@ -5848,6 +5848,47 @@
   }
 </style>
 
+
+<style id="v19-19-desktop-airframe-slider-blue-background">
+  /* v19.19 — match desktop aircraft slider background to the mobile blue treatment */
+  @media (min-width: 821px) {
+    #hero .hero-airframe-top,
+    .hero-airframe-top {
+      background: linear-gradient(180deg, rgba(11, 30, 59, 0.96), rgba(2, 11, 24, 0.98)) !important;
+    }
+
+    #hero .hero-airframe-top .media-frame.hero-airframe-frame,
+    .hero-airframe-top .media-frame.hero-airframe-frame {
+      background: linear-gradient(180deg, rgba(11, 30, 59, 0.96), rgba(2, 11, 24, 0.98)) !important;
+      border-top: 1px solid rgba(39, 74, 117, 0.65) !important;
+      border-bottom: 1px solid rgba(39, 74, 117, 0.65) !important;
+      box-shadow: none !important;
+    }
+
+    #hero .hero-airframe-top .hero-airframe-stage,
+    .hero-airframe-top .hero-airframe-stage {
+      background:
+        radial-gradient(circle at 30% 22%, rgba(186, 206, 230, 0.22), transparent 26%),
+        radial-gradient(circle at 74% 36%, rgba(20, 129, 216, 0.16), transparent 28%),
+        linear-gradient(180deg, rgba(11, 30, 59, 0.96), rgba(2, 11, 24, 0.98)) !important;
+    }
+
+    #hero .hero-airframe-top .hero-airframe-stage::before,
+    .hero-airframe-top .hero-airframe-stage::before {
+      opacity: 0.88 !important;
+      background:
+        radial-gradient(circle at 30% 22%, rgba(186, 206, 230, 0.22), transparent 26%),
+        radial-gradient(circle at 74% 36%, rgba(20, 129, 216, 0.16), transparent 28%),
+        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0)) !important;
+    }
+
+    #hero .hero-airframe-top .hero-airframe-media,
+    .hero-airframe-top .hero-airframe-media {
+      background: transparent !important;
+    }
+  }
+</style>
+
 </head>
 <body style="background:#050608; color:#e5e7eb;">
 <!-- ─── NAVIGATION ───────────────────────────────── -->
