@@ -5889,6 +5889,120 @@
   }
 </style>
 
+
+<style id="v19-20-airframe-swipe-navigation-css">
+  /* v19.20 — swipe/drag support without arrows */
+  #heroAirframeCarousel,
+  .hero-airframe-stage,
+  .hero-airframe-slide,
+  .hero-airframe-media {
+    touch-action: pan-y !important;
+  }
+
+  #heroAirframeCarousel {
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  #heroAirframeCarousel.is-dragging {
+    cursor: grabbing;
+  }
+
+  #heroAirframeCarousel img {
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -webkit-user-select: none;
+    pointer-events: none;
+  }
+</style>
+
+
+<style id="v19-21-hero-title-and-airframe-intro">
+  /* v19.21 — slightly increase main hero title and add aircraft slideshow title block */
+
+  #hero .hero-h1 {
+    font-size: clamp(2.95rem, 6.15vw, 5.65rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.025em !important;
+  }
+
+  .airframe-showcase-intro {
+    position: relative;
+    z-index: 3;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 3rem 2.15rem;
+  }
+
+  .airframe-showcase-kicker {
+    font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #ffb81c;
+    margin-bottom: 0.75rem;
+  }
+
+  .airframe-showcase-title {
+    font-family: 'Cormorant Garamond', 'Georgia', serif;
+    font-size: clamp(2.2rem, 4.1vw, 3.9rem);
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+    color: #fafafa;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .airframe-showcase-subtitle {
+    max-width: 780px;
+    margin: 0.8rem 0 0;
+    color: rgba(229, 231, 235, 0.76);
+    font-size: clamp(1rem, 1.25vw, 1.18rem);
+    line-height: 1.58;
+  }
+
+  @media (max-width: 820px) {
+    #hero .hero-h1 {
+      font-size: clamp(2.35rem, 9.3vw, 3.25rem) !important;
+      line-height: 1.04 !important;
+    }
+
+    .airframe-showcase-intro {
+      padding: 0 1.5rem 1.5rem;
+    }
+
+    .airframe-showcase-kicker {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.65rem;
+    }
+
+    .airframe-showcase-title {
+      font-size: clamp(1.95rem, 7.6vw, 2.7rem);
+      line-height: 1.05;
+    }
+
+    .airframe-showcase-subtitle {
+      font-size: 0.98rem;
+      line-height: 1.55;
+      margin-top: 0.7rem;
+    }
+  }
+
+  @media (max-width: 520px) {
+    #hero .hero-h1 {
+      font-size: clamp(2.18rem, 10vw, 3rem) !important;
+    }
+
+    .airframe-showcase-intro {
+      padding: 0 1.25rem 1.35rem;
+    }
+  }
+</style>
+
 </head>
 <body style="background:#050608; color:#e5e7eb;">
 <!-- ─── NAVIGATION ───────────────────────────────── -->
@@ -5956,6 +6070,14 @@
 <a class="btn-primary" href="#" data-open-signup>Start Investor Signup</a>
 <a class="btn-ghost" href="#offer">See the Offer</a>
 </div>
+</div>
+
+
+<!-- v19.21: Aircraft slideshow intro title -->
+<div class="airframe-showcase-intro" aria-label="Aircraft slideshow introduction">
+  <div class="airframe-showcase-kicker">Conversion Platform Examples</div>
+  <h2 class="airframe-showcase-title">Proven Airframes for Autonomous Conversion</h2>
+  <p class="airframe-showcase-subtitle">Examples of helicopter classes that can be transformed into unmanned, mission-ready aircraft.</p>
 </div>
 
 <!-- v19.15: Aircraft slider moved below hero CTA / above Offer section -->
