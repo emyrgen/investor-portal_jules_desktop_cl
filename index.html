@@ -6004,54 +6004,236 @@
 </style>
 
 
-<style id="v19-22-conversion-gallery-full-bleed-desktop">
-  /* v19.22 — desktop only: make Conversion Program accordion gallery raw edge-to-edge full width */
+
+
+<style id="v19-24-conversion-gallery-true-full-bleed">
+  /* v19.24 — desktop only: true edge-to-edge Conversion Program gallery, preserve all 6 images */
   @media (min-width: 1024px) {
     #how .conversion-gallery,
     #how .conversion-gallery-wrap,
     #how .conversion-gallery-frame,
     #how .conversion-gallery-track {
+      box-sizing: border-box !important;
       width: 100vw !important;
       max-width: 100vw !important;
+      min-width: 100vw !important;
       margin-left: calc(50% - 50vw) !important;
       margin-right: calc(50% - 50vw) !important;
       padding-left: 0 !important;
       padding-right: 0 !important;
+      left: auto !important;
+      right: auto !important;
+      transform: none !important;
+      border-left: 0 !important;
+      border-right: 0 !important;
+      border-radius: 0 !important;
+      overflow: hidden !important;
+    }
+
+    /* If the actual flex track is already inside the full-bleed wrapper,
+       make the track itself start at x=0 of that wrapper instead of double-breaking out. */
+    #how .conversion-gallery .conversion-gallery-track,
+    #how .conversion-gallery-wrap .conversion-gallery-track,
+    #how .conversion-gallery-frame .conversion-gallery-track {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 100% !important;
+    }
+
+    #how .conversion-gallery-track {
+      display: flex !important;
+      gap: 0 !important;
+      align-items: stretch !important;
+      justify-content: flex-start !important;
+    }
+
+    #how .conversion-gallery-track .gallery-slide {
+      box-sizing: border-box !important;
+      margin: 0 !important;
+      border-radius: 0 !important;
+      overflow: hidden !important;
+      min-width: 0 !important;
+      backface-visibility: hidden !important;
+      transform: translateZ(0) !important;
+    }
+
+    #how .conversion-gallery-track .gallery-slide img {
+      display: block !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      border-radius: 0 !important;
+      filter: none !important;
+      opacity: 1 !important;
+    }
+
+    /* Prevent any overlay/tint from returning. */
+    #how .conversion-gallery-track .gallery-slide::before,
+    #how .conversion-gallery-track .gallery-slide::after,
+    #how .gallery-slide::before,
+    #how .gallery-slide::after {
+      opacity: 0 !important;
+      background: transparent !important;
+      pointer-events: none !important;
+    }
+  }
+</style>
+
+
+<style id="v19-26-conversion-gallery-caption-readable">
+  /* v19.26 — desktop only: improve Conversion Program gallery caption readability without full-image overlay */
+  @media (min-width: 1024px) {
+    #how .conversion-gallery-track .gallery-slide-text,
+    #how .gallery-slide .gallery-slide-text {
+      display: inline-block !important;
+      max-width: min(520px, 72%) !important;
+      padding: 0.85rem 1rem 0.95rem !important;
+      border-radius: 14px !important;
+      background: rgba(3, 8, 18, 0.68) !important;
+      border: 1px solid rgba(180, 210, 255, 0.16) !important;
+      box-shadow:
+        0 14px 34px rgba(0, 0, 0, 0.34),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.035) !important;
+      backdrop-filter: blur(10px) saturate(1.05);
+      -webkit-backdrop-filter: blur(10px) saturate(1.05);
+      color: rgba(245, 248, 255, 0.88) !important;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.62) !important;
+    }
+
+    #how .conversion-gallery-track .gallery-slide-title,
+    #how .gallery-slide .gallery-slide-title {
+      color: #ffffff !important;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.74) !important;
+      margin-bottom: 0.35rem !important;
+    }
+
+    #how .conversion-gallery-track .gallery-slide-text p,
+    #how .gallery-slide .gallery-slide-text p {
+      color: rgba(245, 248, 255, 0.84) !important;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.68) !important;
+      margin-bottom: 0 !important;
+    }
+
+    /* Keep images clean: no whole-image gray wash, only caption card gets dark backing. */
+    #how .conversion-gallery-track .gallery-slide::before,
+    #how .conversion-gallery-track .gallery-slide::after,
+    #how .gallery-slide::before,
+    #how .gallery-slide::after {
+      opacity: 0 !important;
+      background: transparent !important;
+      pointer-events: none !important;
+    }
+  }
+</style>
+
+
+
+<style id="v19-28-conversion-gallery-below-steps-aligned">
+  /* v19.28 — move Conversion Gallery below the 8 steps; keep frame/gallery full width,
+     but align only the internal header text to the same X-start as "How We Convert". */
+  @media (min-width: 1024px) {
+    #how .conversion-gallery-shell {
+      box-sizing: border-box !important;
+      width: 100vw !important;
+      max-width: 100vw !important;
+      min-width: 100vw !important;
+      margin-left: calc(50% - 50vw) !important;
+      margin-right: calc(50% - 50vw) !important;
+      margin-top: clamp(3.5rem, 5vw, 5rem) !important;
+      margin-bottom: 0 !important;
+      padding: 0 0 1.4rem 0 !important;
+      border-left: 0 !important;
+      border-right: 0 !important;
+      border-radius: 0 !important;
+      overflow: hidden !important;
+    }
+
+    #how .conversion-gallery-head {
+      box-sizing: border-box !important;
+      width: 100% !important;
+      max-width: none !important;
+      min-width: 0 !important;
+      margin: 0 !important;
+      padding-top: 1.6rem !important;
+      padding-bottom: 1.15rem !important;
+      padding-left: max(var(--shell-gutter), calc((100vw - 1300px) / 2)) !important;
+      padding-right: max(var(--shell-gutter), calc((100vw - 1300px) / 2)) !important;
       border-left: 0 !important;
       border-right: 0 !important;
       border-radius: 0 !important;
     }
 
-    #how .conversion-gallery-track {
-      gap: 0 !important;
-      overflow: hidden !important;
+    #how .conversion-gallery-kicker,
+    #how .conversion-gallery-title,
+    #how .conversion-gallery-text {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      max-width: 980px !important;
     }
 
-    #how .conversion-gallery-track .gallery-slide,
-    #how .gallery-slide {
-      border-radius: 0 !important;
+    #how .conversion-gallery-track {
+      width: 100vw !important;
+      max-width: 100vw !important;
+      min-width: 100vw !important;
       margin-left: 0 !important;
       margin-right: 0 !important;
     }
+  }
+</style>
 
-    #how .conversion-gallery-track .gallery-slide {
-      min-width: 128px !important;
-      flex-basis: 128px !important;
-    }
 
-    #how .conversion-gallery-track .gallery-slide.is-active,
-    #how .conversion-gallery-track .gallery-slide.active {
-      flex: 4.15 1 0 !important;
-      min-width: 0 !important;
-    }
-
-    #how .conversion-gallery-track .gallery-slide img,
-    #how .gallery-slide img {
+<style id="v19-29-conversion-gallery-align-to-steps-column">
+  /* v19.29 — align Conversion Gallery header text with the How We Convert steps column.
+     The blue band and gallery remain full-bleed; only the internal text starts at the steps X line. */
+  @media (min-width: 1024px) {
+    #how .conversion-gallery-head {
+      /* Full-width band remains unchanged */
       width: 100% !important;
-      height: 100% !important;
-      object-fit: cover !important;
-      display: block !important;
-      border-radius: 0 !important;
+      max-width: none !important;
+      margin: 0 !important;
+      box-sizing: border-box !important;
+
+      /* Align to the left edge of the steps column:
+         centered 1300px container + left column/gap offset.
+         This matches the visual column where step 08 starts. */
+      padding-left: calc(max(var(--shell-gutter), (100vw - 1300px) / 2) + clamp(160px, 15.5vw, 250px)) !important;
+      padding-right: max(var(--shell-gutter), calc((100vw - 1300px) / 2)) !important;
+    }
+
+    #how .conversion-gallery-kicker,
+    #how .conversion-gallery-title,
+    #how .conversion-gallery-text {
+      margin-left: 0 !important;
+      padding-left: 0 !important;
+      max-width: 920px !important;
+    }
+  }
+
+  @media (min-width: 1300px) {
+    #how .conversion-gallery-head {
+      padding-left: calc((100vw - 1300px) / 2 + 190px) !important;
+    }
+  }
+</style>
+
+
+<style id="v19-30-conversion-gallery-align-exact-08">
+  /* v19.30 — final correction: align Conversion Gallery text with the 08 step X line.
+     Previous version was ~53px too far right on desktop, so this reduces the offset. */
+  @media (min-width: 1024px) {
+    #how .conversion-gallery-head {
+      padding-left: calc(max(var(--shell-gutter), (100vw - 1300px) / 2) + clamp(107px, 12.2vw, 197px)) !important;
+      padding-right: max(var(--shell-gutter), calc((100vw - 1300px) / 2)) !important;
+    }
+  }
+
+  @media (min-width: 1300px) {
+    #how .conversion-gallery-head {
+      padding-left: calc((100vw - 1300px) / 2 + 137px) !important;
     }
   }
 </style>
@@ -6334,65 +6516,6 @@
         </p>
 </div>
 
-<div class="conversion-gallery-shell">
-<div class="conversion-gallery-head">
-<div class="conversion-gallery-kicker">Conversion Gallery</div>
-<h3 class="conversion-gallery-title">Inside the Conversion Program</h3>
-<p class="conversion-gallery-text">Real teardown, integration, and flight-validation work from EMYRGEN's program.</p>
-</div>
-<div class="conversion-gallery-track" id="conversionGallery" aria-label="EMYRGEN conversion image gallery">
-<article class="gallery-slide is-active" tabindex="0">
-<img alt="Large helicopter airframe teardown in hangar" src="gallery-01-airframe-teardown.webp" loading="lazy" decoding="async"/>
-<div class="gallery-overlay">
-<div class="gallery-pill">01 · Airframe</div>
-<h4 class="gallery-slide-title">Airframe Teardown</h4>
-<p class="gallery-slide-text">Opened up for structural access and removal of pilot-specific systems.</p>
-</div>
-</article>
-<article class="gallery-slide" tabindex="0">
-<img alt="Engineer working on exposed rotor and control systems" src="gallery-02-rotor-systems.webp" loading="lazy" decoding="async"/>
-<div class="gallery-overlay">
-<div class="gallery-pill">02 · Mechanical</div>
-<h4 class="gallery-slide-title">Rotor &amp; Flight-Control Systems</h4>
-<p class="gallery-slide-text">Mechanical interfaces and rotor systems adapted for autonomous control.</p>
-</div>
-</article>
-<article class="gallery-slide" tabindex="0">
-<img alt="Stripped helicopter interior with exposed wiring and internal systems" src="gallery-03-interior-wiring.webp" loading="lazy" decoding="async"/>
-<div class="gallery-overlay">
-<div class="gallery-pill">03 · Integration</div>
-<h4 class="gallery-slide-title">Internal Systems Integration</h4>
-<p class="gallery-slide-text">Avionics, power, and wiring reworked for unmanned mission architecture.</p>
-</div>
-</article>
-<article class="gallery-slide" tabindex="0">
-<img alt="Helicopter cockpit instrument panel" src="gallery-04-cockpit-panel.webp" loading="lazy" decoding="async"/>
-<div class="gallery-overlay">
-<div class="gallery-pill">04 · Cockpit</div>
-<h4 class="gallery-slide-title">Cockpit &amp; Instrumentation</h4>
-<p class="gallery-slide-text">Cockpit interfaces transitioned to remote command and telemetry.</p>
-</div>
-</article>
-<article class="gallery-slide" tabindex="0">
-<img alt="Ka-26 helicopter in flight" src="gallery-05-flight-validation.webp" loading="lazy" decoding="async"/>
-<div class="gallery-overlay">
-<div class="gallery-pill">05 · Flight Test</div>
-<h4 class="gallery-slide-title">Flight Validation</h4>
-<p class="gallery-slide-text">Flight validation: performance, control, mission readiness — proven in air.</p>
-</div>
-</article>
-<article class="gallery-slide" tabindex="0">
-<img alt="Engineer at electronics workstation with circuit board on monitor" src="gallery-06-autonomy-engineering.webp" loading="lazy" decoding="async"/>
-<div class="gallery-overlay">
-<div class="gallery-pill">06 · Autonomy</div>
-<h4 class="gallery-slide-title">Autonomy Engineering</h4>
-<p class="gallery-slide-text">Embedded compute and mission software for autonomous navigation.</p>
-</div>
-</article>
-</div>
-<div class="gallery-mobile-hint"><strong>Mobile:</strong> cards are stacked vertically for easy browsing.</div>
-</div>
-
 <div class="steps">
 <div class="step">
 <div class="step-num">01</div>
@@ -6458,6 +6581,67 @@
 <div class="step-instruments"><span class="instrument">Operators</span><span class="instrument">Technicians</span><span class="instrument">Handover</span></div>
 </div>
 </div>
+
+<!-- v19.28: Conversion Gallery moved below the How We Convert steps -->
+<div class="conversion-gallery-shell">
+<div class="conversion-gallery-head">
+<div class="conversion-gallery-kicker">Conversion Gallery</div>
+<h3 class="conversion-gallery-title">Inside the Conversion Program</h3>
+<p class="conversion-gallery-text">Real teardown, integration, and flight-validation work from EMYRGEN's program.</p>
+</div>
+<div class="conversion-gallery-track" id="conversionGallery" aria-label="EMYRGEN conversion image gallery">
+<article class="gallery-slide is-active" tabindex="0">
+<img alt="Large helicopter airframe teardown in hangar" src="gallery-01-airframe-teardown.webp" loading="lazy" decoding="async"/>
+<div class="gallery-overlay">
+<div class="gallery-pill">01 · Airframe</div>
+<h4 class="gallery-slide-title">Airframe Teardown</h4>
+<p class="gallery-slide-text">Opened up for structural access and removal of pilot-specific systems.</p>
+</div>
+</article>
+<article class="gallery-slide" tabindex="0">
+<img alt="Engineer working on exposed rotor and control systems" src="gallery-02-rotor-systems.webp" loading="lazy" decoding="async"/>
+<div class="gallery-overlay">
+<div class="gallery-pill">02 · Mechanical</div>
+<h4 class="gallery-slide-title">Rotor &amp; Flight-Control Systems</h4>
+<p class="gallery-slide-text">Mechanical interfaces and rotor systems adapted for autonomous control.</p>
+</div>
+</article>
+<article class="gallery-slide" tabindex="0">
+<img alt="Stripped helicopter interior with exposed wiring and internal systems" src="gallery-03-interior-wiring.webp" loading="lazy" decoding="async"/>
+<div class="gallery-overlay">
+<div class="gallery-pill">03 · Integration</div>
+<h4 class="gallery-slide-title">Internal Systems Integration</h4>
+<p class="gallery-slide-text">Avionics, power, and wiring reworked for unmanned mission architecture.</p>
+</div>
+</article>
+<article class="gallery-slide" tabindex="0">
+<img alt="Helicopter cockpit instrument panel" src="gallery-04-cockpit-panel.webp" loading="lazy" decoding="async"/>
+<div class="gallery-overlay">
+<div class="gallery-pill">04 · Cockpit</div>
+<h4 class="gallery-slide-title">Cockpit &amp; Instrumentation</h4>
+<p class="gallery-slide-text">Cockpit interfaces transitioned to remote command and telemetry.</p>
+</div>
+</article>
+<article class="gallery-slide" tabindex="0">
+<img alt="Ka-26 helicopter in flight" src="gallery-05-flight-validation.webp" loading="lazy" decoding="async"/>
+<div class="gallery-overlay">
+<div class="gallery-pill">05 · Flight Test</div>
+<h4 class="gallery-slide-title">Flight Validation</h4>
+<p class="gallery-slide-text">Flight validation: performance, control, mission readiness — proven in air.</p>
+</div>
+</article>
+<article class="gallery-slide" tabindex="0">
+<img alt="Engineer at electronics workstation with circuit board on monitor" src="gallery-06-autonomy-engineering.webp" loading="lazy" decoding="async"/>
+<div class="gallery-overlay">
+<div class="gallery-pill">06 · Autonomy</div>
+<h4 class="gallery-slide-title">Autonomy Engineering</h4>
+<p class="gallery-slide-text">Embedded compute and mission software for autonomous navigation.</p>
+</div>
+</article>
+</div>
+<div class="gallery-mobile-hint"><strong>Mobile:</strong> cards are stacked vertically for easy browsing.</div>
+</div>
+
 </div>
 
 </div>
