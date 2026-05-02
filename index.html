@@ -5890,35 +5890,6 @@
 </style>
 
 
-<style id="v19-20-airframe-swipe-navigation-css">
-  /* v19.20 — swipe/drag support without arrows */
-  #heroAirframeCarousel,
-  .hero-airframe-stage,
-  .hero-airframe-slide,
-  .hero-airframe-media {
-    touch-action: pan-y !important;
-  }
-
-  #heroAirframeCarousel {
-    cursor: grab;
-    user-select: none;
-    -webkit-user-select: none;
-  }
-
-  #heroAirframeCarousel.is-dragging {
-    cursor: grabbing;
-  }
-
-  #heroAirframeCarousel img {
-    user-drag: none;
-    -webkit-user-drag: none;
-    user-select: none;
-    -webkit-user-select: none;
-    pointer-events: none;
-  }
-</style>
-
-
 <style id="v19-21-hero-title-and-airframe-intro">
   /* v19.21 — slightly increase main hero title and add aircraft slideshow title block */
 
@@ -6266,6 +6237,37 @@
     #contact {
       scroll-margin-top: 165px !important;
     }
+  }
+</style>
+
+
+<style id="v19-35-airframe-mobile-swipe-css">
+  /* v19.35 — reliable mobile swipe area for aircraft slideshow, no arrows */
+  #heroAirframeCarousel,
+  #heroAirframeCarousel .hero-airframe-slide,
+  .hero-airframe-stage,
+  .hero-airframe-frame,
+  .hero-airframe-top {
+    touch-action: pan-y !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
+  }
+
+  .hero-airframe-stage {
+    cursor: grab;
+  }
+
+  .hero-airframe-stage.is-swipe-dragging {
+    cursor: grabbing;
+  }
+
+  #heroAirframeCarousel img,
+  .hero-airframe-stage img {
+    -webkit-user-drag: none !important;
+    user-drag: none !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
+    pointer-events: none !important;
   }
 </style>
 
@@ -8442,6 +8444,183 @@ Securities Act of 1933. Consult your own attorney, tax advisor, and financial ad
 
   // Initialize step 1
   showStep(1);
+})();
+</script>
+
+
+<script id="v19-35-airframe-mobile-swipe-navigation">
+(function () {
+  function initReliableAirframeSwipe() {
+    var carousel = document.getElementById('heroAirframeCarousel');
+    if (!carousel || carousel.dataset.reliableSwipeReady === 'true') return;
+
+    var stage = carousel.closest('.hero-airframe-stage') || carousel;
+    var frame = carousel.closest('.hero-airframe-frame') || stage;
+    var swipeTarget = frame || stage || carousel;
+
+    var slides = Array.prototype.slice.call(carousel.querySelectorAll('.hero-airframe-slide'));
+    if (!slides.length) return;
+
+    carousel.dataset.reliableSwipeReady = 'true';
+
+    var startX = 0;
+    var startY = 0;
+    var lastX = 0;
+    var lastY = 0;
+    var tracking = false;
+    var movedHorizontally = false;
+    var threshold = 36;
+
+    function activeIndex() {
+      var active = carousel.querySelector('.hero-airframe-slide.is-active');
+      var idx = slides.indexOf(active);
+      return idx >= 0 ? idx : 0;
+    }
+
+    function activate(index) {
+      var total = slides.length;
+      var next = ((index % total) + total) % total;
+
+      slides.forEach(function (slide, i) {
+        var on = i === next;
+        slide.classList.toggle('is-active', on);
+        slide.setAttribute('aria-hidden', on ? 'false' : 'true');
+      });
+
+      // Store the active index on the DOM so any other site code can read it.
+      carousel.dataset.activeIndex = String(next);
+      stage.dataset.activeIndex = String(next);
+
+      // Dispatch an event in case other code needs to react.
+      try {
+        carousel.dispatchEvent(new CustomEvent('airframeSlideChange', { detail: { index: next } }));
+      } catch (e) {}
+    }
+
+    function nextSlide() {
+      activate(activeIndex() + 1);
+    }
+
+    function previousSlide() {
+      activate(activeIndex() - 1);
+    }
+
+    function begin(x, y) {
+      startX = x;
+      startY = y;
+      lastX = x;
+      lastY = y;
+      tracking = true;
+      movedHorizontally = false;
+      stage.classList.add('is-swipe-dragging');
+    }
+
+    function move(x, y, event) {
+      if (!tracking) return;
+
+      lastX = x;
+      lastY = y;
+
+      var dx = x - startX;
+      var dy = y - startY;
+
+      if (Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)) {
+        movedHorizontally = true;
+        if (event && event.cancelable) event.preventDefault();
+      }
+    }
+
+    function end(x, y) {
+      if (!tracking) return;
+
+      var dx = (typeof x === 'number' ? x : lastX) - startX;
+      var dy = (typeof y === 'number' ? y : lastY) - startY;
+
+      tracking = false;
+      stage.classList.remove('is-swipe-dragging');
+
+      if (Math.abs(dx) >= threshold && Math.abs(dx) > Math.abs(dy) * 1.2) {
+        if (dx < 0) {
+          nextSlide();
+        } else {
+          previousSlide();
+        }
+      }
+
+      window.setTimeout(function () {
+        movedHorizontally = false;
+      }, 0);
+    }
+
+    // Mobile-first touch handling.
+    swipeTarget.addEventListener('touchstart', function (e) {
+      if (!e.touches || e.touches.length !== 1) return;
+      var t = e.touches[0];
+      begin(t.clientX, t.clientY);
+    }, { passive: true });
+
+    swipeTarget.addEventListener('touchmove', function (e) {
+      if (!e.touches || e.touches.length !== 1) return;
+      var t = e.touches[0];
+      move(t.clientX, t.clientY, e);
+    }, { passive: false });
+
+    swipeTarget.addEventListener('touchend', function (e) {
+      var t = e.changedTouches && e.changedTouches[0];
+      end(t ? t.clientX : lastX, t ? t.clientY : lastY);
+    }, { passive: true });
+
+    swipeTarget.addEventListener('touchcancel', function () {
+      tracking = false;
+      stage.classList.remove('is-swipe-dragging');
+    }, { passive: true });
+
+    // Pointer/mouse support for desktop and touch-screen laptops.
+    swipeTarget.addEventListener('pointerdown', function (e) {
+      if (e.pointerType === 'touch') return; // touch handled above
+      if (e.button !== undefined && e.button !== 0) return;
+      begin(e.clientX, e.clientY);
+      try { swipeTarget.setPointerCapture(e.pointerId); } catch (err) {}
+    });
+
+    swipeTarget.addEventListener('pointermove', function (e) {
+      if (e.pointerType === 'touch') return;
+      move(e.clientX, e.clientY, e);
+    });
+
+    swipeTarget.addEventListener('pointerup', function (e) {
+      if (e.pointerType === 'touch') return;
+      end(e.clientX, e.clientY);
+      try { swipeTarget.releasePointerCapture(e.pointerId); } catch (err) {}
+    });
+
+    swipeTarget.addEventListener('pointercancel', function () {
+      tracking = false;
+      stage.classList.remove('is-swipe-dragging');
+    });
+
+    // Trackpad horizontal gesture support.
+    swipeTarget.addEventListener('wheel', function (e) {
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 28) {
+        e.preventDefault();
+        if (e.deltaX > 0) nextSlide();
+        else previousSlide();
+      }
+    }, { passive: false });
+
+    swipeTarget.addEventListener('click', function (e) {
+      if (movedHorizontally) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }, true);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initReliableAirframeSwipe);
+  } else {
+    initReliableAirframeSwipe();
+  }
 })();
 </script>
 
