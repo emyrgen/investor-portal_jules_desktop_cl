@@ -6003,6 +6003,59 @@
   }
 </style>
 
+
+<style id="v19-22-conversion-gallery-full-bleed-desktop">
+  /* v19.22 — desktop only: make Conversion Program accordion gallery raw edge-to-edge full width */
+  @media (min-width: 1024px) {
+    #how .conversion-gallery,
+    #how .conversion-gallery-wrap,
+    #how .conversion-gallery-frame,
+    #how .conversion-gallery-track {
+      width: 100vw !important;
+      max-width: 100vw !important;
+      margin-left: calc(50% - 50vw) !important;
+      margin-right: calc(50% - 50vw) !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      border-left: 0 !important;
+      border-right: 0 !important;
+      border-radius: 0 !important;
+    }
+
+    #how .conversion-gallery-track {
+      gap: 0 !important;
+      overflow: hidden !important;
+    }
+
+    #how .conversion-gallery-track .gallery-slide,
+    #how .gallery-slide {
+      border-radius: 0 !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    #how .conversion-gallery-track .gallery-slide {
+      min-width: 128px !important;
+      flex-basis: 128px !important;
+    }
+
+    #how .conversion-gallery-track .gallery-slide.is-active,
+    #how .conversion-gallery-track .gallery-slide.active {
+      flex: 4.15 1 0 !important;
+      min-width: 0 !important;
+    }
+
+    #how .conversion-gallery-track .gallery-slide img,
+    #how .gallery-slide img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      display: block !important;
+      border-radius: 0 !important;
+    }
+  }
+</style>
+
 </head>
 <body style="background:#050608; color:#e5e7eb;">
 <!-- ─── NAVIGATION ───────────────────────────────── -->
