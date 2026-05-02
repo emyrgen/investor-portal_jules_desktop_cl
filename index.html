@@ -6271,6 +6271,82 @@
   }
 </style>
 
+
+<style id="v19-41-conversion-gallery-card-typography-cleanup">
+  /* v19.41 — make the first/active Conversion Gallery card match the typography of the other cards. */
+  .conversion-gallery-shell .gallery-slide-title,
+  .conversion-gallery-shell .gallery-slide.is-active .gallery-slide-title,
+  .conversion-gallery-shell .gallery-slide:hover .gallery-slide-title,
+  .conversion-gallery-shell .gallery-slide:focus-within .gallery-slide-title {
+    font-size: 1rem !important;
+    margin: 0 0 0.25rem 0 !important;
+  }
+
+  .conversion-gallery-shell .gallery-slide-text,
+  .conversion-gallery-shell .gallery-slide.is-active .gallery-slide-text,
+  .conversion-gallery-shell .gallery-slide:hover .gallery-slide-text,
+  .conversion-gallery-shell .gallery-slide:focus-within .gallery-slide-text {
+    font-size: 0.84rem !important;
+    line-height: 1.4 !important;
+  }
+
+  @media (min-width: 861px) {
+    .conversion-gallery-shell .gallery-slide-text,
+    .conversion-gallery-shell .gallery-slide.is-active .gallery-slide-text,
+    .conversion-gallery-shell .gallery-slide:hover .gallery-slide-text,
+    .conversion-gallery-shell .gallery-slide:focus-within .gallery-slide-text {
+      font-size: 0.92rem !important;
+      line-height: 1.45 !important;
+    }
+  }
+</style>
+
+
+<style id="v19-42-investment-process-typography-fix">
+  /* v19.42 — Investment Process route typography alignment.
+     Enlarges the six process item titles and descriptions so they visually match
+     the adjacent Instrument / Use of Funds / Target Close / Wire Security cards. */
+  #logistics .route-node-name {
+    font-family: var(--f-cond) !important;
+    font-size: 1.08rem !important;
+    line-height: 1.24 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.10em !important;
+    text-transform: uppercase !important;
+    color: var(--c-white) !important;
+  }
+
+  #logistics .route-node-detail {
+    font-size: 1.08rem !important;
+    line-height: 1.58 !important;
+    font-weight: 400 !important;
+    color: var(--c-muted) !important;
+    margin-top: 0.38rem !important;
+    max-width: 36rem;
+  }
+
+  #logistics .route-node {
+    gap: 1.18rem !important;
+  }
+
+  #logistics .route-chain .route-node + .route-node {
+    margin-top: 0.06rem;
+  }
+
+  @media (max-width: 860px) {
+    #logistics .route-node-name {
+      font-size: 1rem !important;
+      line-height: 1.24 !important;
+      letter-spacing: 0.08em !important;
+    }
+
+    #logistics .route-node-detail {
+      font-size: 1rem !important;
+      line-height: 1.56 !important;
+    }
+  }
+</style>
+
 </head>
 <body style="background:#050608; color:#e5e7eb;">
 <!-- ─── NAVIGATION ───────────────────────────────── -->
@@ -6479,12 +6555,12 @@
 <div class="whynow-card">
 <div class="whynow-num">01</div>
 <div class="whynow-title">Proof Already Exists</div>
-<div class="whynow-text">Two Ka-26 helicopters already converted. Autonomy already flight-tested. You're not betting on the science — only on scale.</div>
+<div class="whynow-text">Two helicopters already converted. Autonomy already flight-tested. You're not betting on the science — only on scale.</div>
 </div>
 <div class="whynow-card">
 <div class="whynow-num">02</div>
 <div class="whynow-title">The Payload Gap</div>
-<div class="whynow-text">Small drones can't carry it. Crewed helicopters cost too much. EMYRGEN sits in the empty middle — 900–1,150kg autonomous lift.</div>
+<div class="whynow-text">Small drones can't carry it. Crewed helicopters cost too much. EMYRGEN sits in the empty middle — 900–1,150 kg (1,985–2,535 lb) autonomous lift.</div>
 </div>
 <div class="whynow-card urgent">
 <div class="whynow-num">03</div>
@@ -6658,7 +6734,7 @@
 </div>
 </article>
 <article class="gallery-slide" tabindex="0">
-<img alt="Ka-26 helicopter in flight" src="gallery-05-flight-validation.webp" loading="lazy" decoding="async"/>
+<img alt="Converted helicopter in flight" src="gallery-05-flight-validation.webp" loading="lazy" decoding="async"/>
 <div class="gallery-overlay">
 <div class="gallery-pill">05 · Flight Test</div>
 <h4 class="gallery-slide-title">Flight Validation</h4>
@@ -6674,7 +6750,6 @@
 </div>
 </article>
 </div>
-<div class="gallery-mobile-hint"><strong>Mobile:</strong> cards are stacked vertically for easy browsing.</div>
 </div>
 
 </div>
@@ -7030,7 +7105,6 @@
 <p>Email your completed and signed Investment Agreement to <strong>invest@emyrgengroup.com</strong>.</p>
 <a class="signup-return-cta" id="emailSignedAgreementCta" href="mailto:invest@emyrgengroup.com?subject=Signed%20EMYRGEN%20Investment%20Agreement&body=Hello%20EMYRGEN%2C%0A%0AAttached%20is%20my%20completed%20and%20signed%20EMYRGEN%20Investment%20Agreement.%0A%0AInvestor%20name%3A%0AContact%20email%20or%20phone%3A%0A%0AThank%20you.">Email Signed Agreement</a>
 </div>
-<p class="signup-entry-meta">The signup button opens a prepared email to EMYRGEN and downloads the agreement.</p>
 </div>
 <div class="legal-strip">
 <strong>Legal notice:</strong> This is a private communication shared only with invited individuals.
@@ -7047,10 +7121,6 @@ Securities Act of 1933. Consult your own attorney, tax advisor, and financial ad
 </div>
 <div class="footer-copy">
     © 2026 EMYRGEN GROUP INC. All rights reserved.
-  </div>
-<div class="footer-legal">
-    Friends &amp; Family Pre-Seed Round · June 2026 · Strictly Private &amp; Confidential.
-    Information on this site is not legal, tax, or financial advice.
   </div>
 </footer>
 <button aria-label="Scroll to top" class="scroll-top-btn" id="scrollTopBtn" type="button">
@@ -7316,7 +7386,11 @@ Securities Act of 1933. Consult your own attorney, tax advisor, and financial ad
 
     if (signedCta) signedCta.href = buildSignedMailto(name, email, phone);
     triggerDownload();
-    setStatus('Agreement download started. Send the prepared email so EMYRGEN receives your signup notice.', false);
+    if (statusEl) {
+      statusEl.hidden = true;
+      statusEl.textContent = '';
+      statusEl.classList.remove('is-error');
+    }
     window.location.href = buildSignupMailto(name, email, phone);
   });
 })();
@@ -7481,11 +7555,12 @@ Securities Act of 1933. Consult your own attorney, tax advisor, and financial ad
     box-shadow: 0 16px 40px -10px rgba(245,158,11,0.7), 0 0 0 8px rgba(245,158,11,0.12);
   }
   .signup-return-panel {
-    margin: 1rem 0 0.8rem;
+    margin: 1rem 0 0;
     padding: 1rem;
     border-radius: 14px;
-    background: linear-gradient(180deg, rgba(6,182,212,0.07), rgba(6,182,212,0.025));
-    border: 1px solid rgba(6,182,212,0.2);
+    background: linear-gradient(180deg, rgba(6,182,212,0.14), rgba(6,182,212,0.045));
+    border: 1px solid rgba(6,182,212,0.48);
+    box-shadow: 0 0 0 1px rgba(6,182,212,0.08), 0 18px 42px -28px rgba(6,182,212,0.70);
   }
   .signup-return-kicker {
     font-family: var(--f-mono);
@@ -7518,23 +7593,17 @@ Securities Act of 1933. Consult your own attorney, tax advisor, and financial ad
     font-weight: 800;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--c-white);
+    color: #061118;
     text-decoration: none;
-    background: rgba(255,255,255,0.035);
-    border: 1px solid rgba(255,255,255,0.12);
-    transition: transform 220ms var(--ease), background 220ms var(--ease), border-color 220ms var(--ease);
+    background: linear-gradient(135deg, var(--c-accent), var(--c-lime));
+    border: 1px solid rgba(103,232,249,0.78);
+    box-shadow: 0 12px 28px -16px rgba(6,182,212,0.86);
+    transition: transform 220ms var(--ease), filter 220ms var(--ease), box-shadow 220ms var(--ease);
   }
   .signup-return-cta:hover {
-    border-color: rgba(6,182,212,0.42);
-    background: rgba(6,182,212,0.08);
+    filter: brightness(1.08);
     transform: translateY(-1px);
-  }
-  .signup-entry-meta {
-    margin-top: 1rem;
-    font-size: 0.82rem;
-    color: var(--c-muted);
-    line-height: 1.55;
-    text-align: center;
+    box-shadow: 0 16px 34px -16px rgba(6,182,212,0.95);
   }
   @media (max-width: 760px) {
     .signup-entry-card { padding: 1.75rem; }
