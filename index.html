@@ -6781,7 +6781,7 @@
         From Interest to <em>Ownership</em>
 </h2>
 <p class="section-body">
-        Six clear steps from inquiry to confirmed position. Funds Autopilot v1, Conversion Kit v1, and the first commercial deployments.
+        Six clear steps from investor interest to signed agreement, wire verification, and confirmed position. Funds Autopilot v1, Conversion Kit v1, and the first commercial deployments.
       </p>
 </div>
 <div class="logistics-layout">
@@ -6796,31 +6796,31 @@
 <div class="route-dot"><div class="route-dot-inner active"></div></div>
 <div>
 <div class="route-node-name">Express Interest</div>
-<div class="route-node-detail">Contact the founder privately with the amount you're considering.</div>
+<div class="route-node-detail">Submit investor details and the amount you're considering through the signup flow.</div>
 </div>
 </div>
 <div class="route-node"><div class="route-dot"><div style="width:1px;height:36px;background:var(--c-border);margin:0 auto;"></div></div><div style="height:36px;"></div></div>
 <div class="route-node">
 <div class="route-dot"><div class="route-dot-inner active"></div></div>
 <div>
-<div class="route-node-name">Receive SAFE Document</div>
-<div class="route-node-detail">The investment document goes out for your review before any funds move.</div>
+<div class="route-node-name">Download Investment Agreement</div>
+<div class="route-node-detail">After submission, download the fillable PDF agreement directly from the signup flow.</div>
 </div>
 </div>
 <div class="route-node"><div class="route-dot"><div style="width:1px;height:36px;background:var(--c-border);margin:0 auto;"></div></div><div style="height:36px;"></div></div>
 <div class="route-node">
 <div class="route-dot"><div class="route-dot-inner active"></div></div>
 <div>
-<div class="route-node-name">Sign the SAFE</div>
-<div class="route-node-detail">Sign digitally after review and any legal or tax questions.</div>
+<div class="route-node-name">Complete + Sign Agreement</div>
+<div class="route-node-detail">Complete the investor fields, review the SAFE terms, and sign the PDF.</div>
 </div>
 </div>
 <div class="route-node"><div class="route-dot"><div style="width:1px;height:36px;background:var(--c-border);margin:0 auto;"></div></div><div style="height:36px;"></div></div>
 <div class="route-node">
 <div class="route-dot"><div class="route-dot-inner active"></div></div>
 <div>
-<div class="route-node-name">Receive Wire Instructions</div>
-<div class="route-node-detail">Sent only after signing — only from the founder's verified EMYRGEN email.</div>
+<div class="route-node-name">Email Signed PDF</div>
+<div class="route-node-detail">Return the signed agreement to eligreen@emyrgengroup.com or the company email specified by EMYRGEN.</div>
 </div>
 </div>
 <div class="route-node"><div class="route-dot"><div style="width:1px;height:36px;background:var(--c-border);margin:0 auto;"></div></div><div style="height:36px;"></div></div>
@@ -6828,7 +6828,7 @@
 <div class="route-dot"><div class="route-dot-inner active"></div></div>
 <div>
 <div class="route-node-name">Wire the Investment</div>
-<div class="route-node-detail">Bank wire to the company account after verification with the founder.</div>
+<div class="route-node-detail">Wire funds only after verifying instructions directly with the founder or an authorized company representative.</div>
 </div>
 </div>
 <div class="route-node"><div class="route-dot"><div style="width:1px;height:36px;background:var(--c-border);margin:0 auto;"></div></div><div style="height:36px;"></div></div>
@@ -6958,7 +6958,7 @@
         Begin the <em>Investor Signup</em>
 </h2>
 <p class="section-body">
-        Start the private investment process. Submit your investor details, proposed investment amount, and preferred next step. EMYRGEN will review your submission and provide the appropriate investor package, documents, and funding instructions.
+        Start the private investment process. Submit your investor details, proposed investment amount, and preferred next step. After submission, download the fillable Investment Agreement, complete and sign it, then email the signed PDF to eligreen@emyrgengroup.com.
       </p>
 <div class="emyrgen-note">
         Your investment goes into EMYRGEN GROUP, INC — owner of the conversion architecture, autonomy software, and partner deployment model.
@@ -7014,7 +7014,7 @@
 <li><span class="signup-step-num">06</span><span>Review &amp; Submit</span></li>
 </ul>
 <button class="signup-entry-cta" type="button" data-open-signup>Start Investor Signup</button>
-<p class="signup-entry-meta">Approximately 3–5 minutes. No payment required at this stage. EMYRGEN will respond with the appropriate investor package after preliminary review.</p>
+<p class="signup-entry-meta">Approximately 3–5 minutes. No payment required at this stage. After submitting interest, download the fillable Investment Agreement and email the completed signed PDF to EMYRGEN.</p>
 </div>
 <div class="legal-strip">
 <strong>Legal notice:</strong> This is a private communication shared only with invited individuals.
@@ -7815,6 +7815,88 @@ Securities Act of 1933. Consult your own attorney, tax advisor, and financial ad
     max-width: 540px;
   }
   .wiz-confirm-security strong { color: var(--c-amber); }
+
+  /* v19.36 — Investor agreement PDF workflow */
+  .wiz-agreement-panel {
+    background: linear-gradient(180deg, rgba(6,182,212,0.08), rgba(6,182,212,0.025));
+    border: 1px solid rgba(6,182,212,0.26);
+    border-radius: 16px;
+    padding: 1.2rem 1.25rem;
+    margin: 1.35rem auto 0;
+    max-width: 560px;
+    text-align: left;
+    box-shadow: 0 18px 48px -34px rgba(6,182,212,0.65);
+  }
+  .wiz-agreement-kicker {
+    font-family: var(--f-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--c-lime);
+    font-weight: 700;
+    margin-bottom: 0.45rem;
+  }
+  .wiz-agreement-title {
+    font-family: var(--f-display);
+    color: var(--c-white);
+    font-size: 1.12rem;
+    line-height: 1.35;
+    margin-bottom: 0.5rem;
+  }
+  .wiz-agreement-copy {
+    color: var(--c-text);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  .wiz-agreement-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    align-items: stretch;
+  }
+  .wiz-agreement-download,
+  .wiz-agreement-email {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    border-radius: 10px;
+    padding: 0.82rem 1rem;
+    font-family: var(--f-cond);
+    font-size: 0.86rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 220ms var(--ease), background 220ms var(--ease), border-color 220ms var(--ease);
+  }
+  .wiz-agreement-download {
+    background: var(--c-gold);
+    color: #0a0a0a;
+    box-shadow: 0 10px 28px -12px rgba(245,158,11,0.7);
+  }
+  .wiz-agreement-download:hover {
+    background: var(--c-amber);
+    color: #0a0a0a;
+    transform: translateY(-1px);
+  }
+  .wiz-agreement-email {
+    background: rgba(255,255,255,0.035);
+    color: var(--c-white);
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .wiz-agreement-email:hover {
+    border-color: rgba(6,182,212,0.42);
+    background: rgba(6,182,212,0.08);
+    transform: translateY(-1px);
+  }
+  @media (max-width: 520px) {
+    .wiz-agreement-actions { flex-direction: column; }
+    .wiz-agreement-download,
+    .wiz-agreement-email { width: 100%; }
+  }
+
 </style>
 
 <!-- Wizard modal markup -->
@@ -8045,14 +8127,14 @@ Securities Act of 1933. Consult your own attorney, tax advisor, and financial ad
       <!-- Step 6: Review + Submit -->
       <div class="wiz-step" data-step="6">
         <h3 class="wiz-step-h">Review &amp; <em>submit</em></h3>
-        <p class="wiz-step-sub">Confirm your information before submitting. You can go back to edit any step.</p>
+        <p class="wiz-step-sub">Confirm your information before submitting. You can go back to edit any step. The Investment Agreement download appears immediately after submission.</p>
 
         <div class="wiz-review" id="wizReview">
           <!-- Filled by JS -->
         </div>
 
         <div class="wiz-disclosure">
-          <strong>By submitting:</strong> You indicate investment interest. EMYRGEN will review and respond with the appropriate investor package, documents, and next steps. This submission is not a confirmed investment.
+          <strong>By submitting:</strong> You indicate investment interest. After submission, download the fillable Investment Agreement, complete and sign it, and email the signed PDF to eligreen@emyrgengroup.com. This submission is not a confirmed investment.
         </div>
       </div>
 
@@ -8064,9 +8146,18 @@ Securities Act of 1933. Consult your own attorney, tax advisor, and financial ad
           </div>
           <h3>Your investor signup has been received.</h3>
           <div class="wiz-confirm-id" id="wizConfirmId"></div>
-          <p>EMYRGEN will review your information and provide the appropriate investor package and next steps. You should expect a direct response from <strong style="color:var(--c-white)">eligreen@emyrgengroup.com</strong> within 1–3 business days.</p>
+          <p>Next, download the fillable EMYRGEN Investment Agreement, complete and sign the PDF, then email the signed copy to <strong style="color:var(--c-white)">eligreen@emyrgengroup.com</strong>.</p>
+          <div class="wiz-agreement-panel">
+            <div class="wiz-agreement-kicker">Agreement workflow</div>
+            <div class="wiz-agreement-title">Download, complete, sign, and email-return the PDF.</div>
+            <div class="wiz-agreement-copy">Use the download button below after submitting your interest. Attach the completed signed PDF to your email response. EMYRGEN will confirm receipt before any funding step.</div>
+            <div class="wiz-agreement-actions">
+              <a class="wiz-agreement-download" id="wizAgreementDownload" href="emyrgen-investment-agreement.pdf" download="EMYRGEN_Investment_Agreement.pdf">Download Investment Agreement</a>
+              <a class="wiz-agreement-email" id="wizAgreementEmail" href="mailto:eligreen@emyrgengroup.com">Email Signed PDF</a>
+            </div>
+          </div>
           <div class="wiz-confirm-security">
-            <strong>For investor protection:</strong> Wire instructions should only be provided after direct confirmation with EMYRGEN. Do not rely on wire instructions received from an unverified source.
+            <strong>For investor protection:</strong> Verify wire instructions directly with EMYRGEN before sending funds. Do not rely on wire instructions received from an unverified source.
           </div>
         </div>
       </div>
@@ -8123,6 +8214,8 @@ Securities Act of 1933. Consult your own attorney, tax advisor, and financial ad
   const closeBtn = document.getElementById('wizClose');
   const footerEl = document.getElementById('wizFooter');
   const reviewEl = document.getElementById('wizReview');
+  const AGREEMENT_PDF_URL = 'emyrgen-investment-agreement.pdf';
+  const AGREEMENT_RETURN_EMAIL = 'eligreen@emyrgengroup.com';
 
   /* ── Open / Close ────────────────────────────── */
   function openWizard() {
@@ -8275,7 +8368,7 @@ Securities Act of 1933. Consult your own attorney, tax advisor, and financial ad
     // Buttons
     backBtn.disabled = (n === 1);
     if (n === 6) {
-      nextBtn.textContent = 'Submit Investment Interest';
+      nextBtn.textContent = 'Submit & Continue to Agreement';
     } else {
       nextBtn.textContent = 'Continue →';
     }
@@ -8390,7 +8483,7 @@ Securities Act of 1933. Consult your own attorney, tax advisor, and financial ad
       ...STATE,
       submitted_at: new Date().toISOString(),
       source_page: location.href,
-      page_version: 'v18'
+      page_version: 'v19.36'
     };
 
     try {
@@ -8418,7 +8511,7 @@ Securities Act of 1933. Consult your own attorney, tax advisor, and financial ad
       alert('Submission could not be completed. Please contact eligreen@emyrgengroup.com directly.');
       nextBtn.disabled = false;
       backBtn.disabled = false;
-      nextBtn.textContent = 'Submit Investment Interest';
+      nextBtn.textContent = 'Submit & Continue to Agreement';
     }
   }
 
@@ -8431,6 +8524,22 @@ Securities Act of 1933. Consult your own attorney, tax advisor, and financial ad
   function showConfirmation(id) {
     showStep('confirm');
     document.getElementById('wizConfirmId').textContent = `Reference ID: ${id}`;
+    const agreementDownload = document.getElementById('wizAgreementDownload');
+    const agreementEmail = document.getElementById('wizAgreementEmail');
+    if (agreementDownload) agreementDownload.href = AGREEMENT_PDF_URL;
+    if (agreementEmail) {
+      const subject = `Signed EMYRGEN Investment Agreement - ${id}`;
+      const body = `Hello EMYRGEN,
+
+I have completed and signed the EMYRGEN Investment Agreement. Please find the signed PDF attached.
+
+Reference ID: ${id}
+Investor name: ${STATE.full_name || ''}
+Proposed amount: ${STATE.proposed_amount || ''}
+
+Thank you.`;
+      agreementEmail.href = `mailto:${AGREEMENT_RETURN_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    }
     // Hide footer on confirmation
     footerEl.style.display = 'none';
     // Update progress to all-done
