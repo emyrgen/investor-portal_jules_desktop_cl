@@ -6819,8 +6819,8 @@
 <div class="route-node">
 <div class="route-dot"><div class="route-dot-inner active"></div></div>
 <div>
-<div class="route-node-name">Email Signed PDF</div>
-<div class="route-node-detail">Return the signed agreement to eligreen@emyrgengroup.com or the company email specified by EMYRGEN.</div>
+<div class="route-node-name">Email Signed Agreement</div>
+<div class="route-node-detail">Return the signed agreement to invest@emyrgengroup.com.</div>
 </div>
 </div>
 <div class="route-node"><div class="route-dot"><div style="width:1px;height:36px;background:var(--c-border);margin:0 auto;"></div></div><div style="height:36px;"></div></div>
@@ -6958,7 +6958,7 @@
         Begin the <em>Investor Signup</em>
 </h2>
 <p class="section-body">
-        Start the private investment process. Submit your investor details, proposed investment amount, and preferred next step. After submission, download the fillable Investment Agreement, complete and sign it, then email the signed PDF to eligreen@emyrgengroup.com.
+        Start the private investment process. Submit your investor details and proposed investment amount. After submission, download the Investment Agreement and email the signed PDF to invest@emyrgengroup.com.
       </p>
 <div class="emyrgen-note">
         Your investment goes into EMYRGEN GROUP, INC — owner of the conversion architecture, autonomy software, and partner deployment model.
@@ -6972,8 +6972,8 @@
 </svg>
 </div>
 <div>
-<div class="cinfo-label">Founder Email</div>
-<div class="cinfo-value"><a href="mailto:eligreen@emyrgengroup.com">eligreen@emyrgengroup.com</a></div>
+<div class="cinfo-label">Investment Email</div>
+<div class="cinfo-value"><a href="mailto:invest@emyrgengroup.com">invest@emyrgengroup.com</a></div>
 </div>
 </div>
 <div class="contact-info-item">
@@ -7008,7 +7008,7 @@
 <ul class="signup-entry-steps">
 <li><span class="signup-step-num">01</span><span>Investor Type</span></li>
 <li><span class="signup-step-num">02</span><span>Contact Details</span></li>
-<li><span class="signup-step-num">03</span><span>Entity Information</span></li>
+<li><span class="signup-step-num">03</span><span>Entity Information <small style="color:var(--c-muted);font-size:0.78em;">Optional</small></span></li>
 <li><span class="signup-step-num">04</span><span>Investment Interest</span></li>
 <li><span class="signup-step-num">05</span><span>Investor Qualification</span></li>
 <li><span class="signup-step-num">06</span><span>Review &amp; Submit</span></li>
@@ -7217,7 +7217,7 @@ Securities Act of 1933. Consult your own attorney, tax advisor, and financial ad
     setTimeout(() => {
       btn.textContent = 'Opening Email ✓';
       btn.style.background = 'var(--c-green)';
-      window.location.href = `mailto:eligreen@emyrgengroup.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:invest@emyrgengroup.com?subject=${subject}&body=${body}`;
     }, 900);
   }
 </script>
@@ -7558,6 +7558,65 @@ Securities Act of 1933. Consult your own attorney, tax advisor, and financial ad
     margin-top: 0.5rem;
   }
 
+  .wiz-entity-skip-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    background: linear-gradient(180deg, rgba(245,158,11,0.065), rgba(245,158,11,0.025));
+    border: 1px solid rgba(245,158,11,0.24);
+    border-radius: 14px;
+    padding: 1rem;
+    margin: -0.45rem 0 1.15rem;
+  }
+  .wiz-entity-skip-title {
+    color: var(--c-white);
+    font-weight: 700;
+    font-size: 0.96rem;
+    margin-bottom: 0.2rem;
+  }
+  .wiz-entity-skip-copy {
+    color: var(--c-muted);
+    font-size: 0.84rem;
+    line-height: 1.45;
+  }
+  .wiz-entity-skip {
+    flex-shrink: 0;
+    border: 1px solid rgba(245,158,11,0.38);
+    background: rgba(245,158,11,0.12);
+    color: var(--c-amber);
+    border-radius: 10px;
+    padding: 0.8rem 0.95rem;
+    font-family: var(--f-cond);
+    font-weight: 800;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 220ms var(--ease), background 220ms var(--ease), border-color 220ms var(--ease);
+  }
+  .wiz-entity-skip:hover {
+    background: rgba(245,158,11,0.18);
+    border-color: rgba(245,158,11,0.55);
+    transform: translateY(-1px);
+  }
+  .wiz-entity-fields-label {
+    font-family: var(--f-mono);
+    color: var(--c-lime);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin: 1.15rem 0 0.75rem;
+  }
+  @media (max-width: 620px) {
+    .wiz-entity-skip-panel {
+      align-items: stretch;
+      flex-direction: column;
+    }
+    .wiz-entity-skip { width: 100%; }
+  }
+
   /* Choice cards (for radios / select-as-cards) */
   .wiz-choices {
     display: grid;
@@ -7816,7 +7875,7 @@ Securities Act of 1933. Consult your own attorney, tax advisor, and financial ad
   }
   .wiz-confirm-security strong { color: var(--c-amber); }
 
-  /* v19.36 — Investor agreement PDF workflow */
+  /* v19.37 — compact agreement workflow + optional entity skip */
   .wiz-agreement-panel {
     background: linear-gradient(180deg, rgba(6,182,212,0.08), rgba(6,182,212,0.025));
     border: 1px solid rgba(6,182,212,0.26);
@@ -7848,6 +7907,56 @@ Securities Act of 1933. Consult your own attorney, tax advisor, and financial ad
     font-size: 0.88rem;
     line-height: 1.6;
     margin-bottom: 1rem;
+  }
+
+  .wiz-confirm-compact {
+    padding: 1.05rem 0.25rem 0.25rem;
+  }
+  .wiz-confirm-compact .wiz-confirm-icon {
+    width: 58px;
+    height: 58px;
+    margin-bottom: 0.9rem;
+  }
+  .wiz-confirm-compact h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.42rem;
+  }
+  .wiz-confirm-compact .wiz-confirm-id {
+    margin-bottom: 0.75rem;
+  }
+  .wiz-agreement-panel-compact {
+    margin-top: 0.85rem;
+    padding: 1rem;
+    border-radius: 14px;
+  }
+  .wiz-agreement-list {
+    margin: 0 0 1rem 0;
+    padding: 0;
+    list-style: none;
+    color: var(--c-text);
+    font-size: 0.91rem;
+    line-height: 1.55;
+  }
+  .wiz-agreement-list li {
+    position: relative;
+    padding-left: 1.05rem;
+    margin: 0.34rem 0;
+  }
+  .wiz-agreement-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--c-amber);
+    font-weight: 800;
+  }
+  .wiz-agreement-list strong {
+    color: var(--c-white);
+    font-weight: 700;
+  }
+  .wiz-progress-meta.is-confirm {
+    color: var(--c-amber);
+    letter-spacing: 0.16em;
   }
   .wiz-agreement-actions {
     display: flex;
@@ -7998,7 +8107,17 @@ Securities Act of 1933. Consult your own attorney, tax advisor, and financial ad
       <!-- Step 3: Entity Information -->
       <div class="wiz-step" data-step="3">
         <h3 class="wiz-step-h">Entity <em>information</em></h3>
-        <p class="wiz-step-sub" id="wizEntitySub">If investing as an individual, you may leave entity fields blank unless otherwise applicable.</p>
+        <p class="wiz-step-sub" id="wizEntitySub">Only complete this section if you are investing through a company, trust, or other legal entity.</p>
+
+        <div class="wiz-entity-skip-panel">
+          <div>
+            <div class="wiz-entity-skip-title">Investing personally?</div>
+            <div class="wiz-entity-skip-copy">Skip this step and continue to investment interest.</div>
+          </div>
+          <button type="button" class="wiz-entity-skip" id="wizEntitySkip">Skip — I am investing personally</button>
+        </div>
+
+        <div class="wiz-entity-fields-label">Entity investment details</div>
         <div class="wiz-row">
           <div class="wiz-field">
             <label class="wiz-label" for="wiz_entity_name">Entity Legal Name</label>
@@ -8134,30 +8253,29 @@ Securities Act of 1933. Consult your own attorney, tax advisor, and financial ad
         </div>
 
         <div class="wiz-disclosure">
-          <strong>By submitting:</strong> You indicate investment interest. After submission, download the fillable Investment Agreement, complete and sign it, and email the signed PDF to eligreen@emyrgengroup.com. This submission is not a confirmed investment.
+          <strong>By submitting:</strong> You indicate investment interest. The Investment Agreement download appears after submission. This submission is not a confirmed investment.
         </div>
       </div>
 
       <!-- Confirmation -->
       <div class="wiz-step" data-step="confirm">
-        <div class="wiz-confirm">
+        <div class="wiz-confirm wiz-confirm-compact">
           <div class="wiz-confirm-icon">
-            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
-          <h3>Your investor signup has been received.</h3>
+          <h3>Submission received</h3>
           <div class="wiz-confirm-id" id="wizConfirmId"></div>
-          <p>Next, download the fillable EMYRGEN Investment Agreement, complete and sign the PDF, then email the signed copy to <strong style="color:var(--c-white)">eligreen@emyrgengroup.com</strong>.</p>
-          <div class="wiz-agreement-panel">
-            <div class="wiz-agreement-kicker">Agreement workflow</div>
-            <div class="wiz-agreement-title">Download, complete, sign, and email-return the PDF.</div>
-            <div class="wiz-agreement-copy">Use the download button below after submitting your interest. Attach the completed signed PDF to your email response. EMYRGEN will confirm receipt before any funding step.</div>
+          <div class="wiz-agreement-panel wiz-agreement-panel-compact">
+            <div class="wiz-agreement-kicker">Next step</div>
+            <ul class="wiz-agreement-list">
+              <li>Download the EMYRGEN Investment Agreement.</li>
+              <li>Complete and sign the agreement.</li>
+              <li>Email the signed PDF to <strong>invest@emyrgengroup.com</strong>.</li>
+            </ul>
             <div class="wiz-agreement-actions">
-              <a class="wiz-agreement-download" id="wizAgreementDownload" href="emyrgen-investment-agreement.pdf" download="EMYRGEN_Investment_Agreement.pdf">Download Investment Agreement</a>
-              <a class="wiz-agreement-email" id="wizAgreementEmail" href="mailto:eligreen@emyrgengroup.com">Email Signed PDF</a>
+              <a class="wiz-agreement-download" id="wizAgreementDownload" href="emyrgen-investment-agreement.pdf" download="EMYRGEN_Investment_Agreement.pdf">Download Agreement</a>
+              <a class="wiz-agreement-email" id="wizAgreementEmail" href="mailto:invest@emyrgengroup.com">Email Signed Agreement</a>
             </div>
-          </div>
-          <div class="wiz-confirm-security">
-            <strong>For investor protection:</strong> Verify wire instructions directly with EMYRGEN before sending funds. Do not rely on wire instructions received from an unverified source.
           </div>
         </div>
       </div>
@@ -8207,15 +8325,16 @@ Securities Act of 1933. Consult your own attorney, tax advisor, and financial ad
   const overlay = document.getElementById('wizOverlay');
   const card = overlay.querySelector('.wiz-card');
   const progressDots = overlay.querySelectorAll('.wiz-prog-dot');
-  const stepNumEl = document.getElementById('wizStepNum');
-  const stepNameEl = document.getElementById('wizStepName');
+  const progressMetaEl = overlay.querySelector('.wiz-progress-meta');
+  let stepNumEl = document.getElementById('wizStepNum');
+  let stepNameEl = document.getElementById('wizStepName');
   const backBtn = document.getElementById('wizBack');
   const nextBtn = document.getElementById('wizNext');
   const closeBtn = document.getElementById('wizClose');
   const footerEl = document.getElementById('wizFooter');
   const reviewEl = document.getElementById('wizReview');
   const AGREEMENT_PDF_URL = 'emyrgen-investment-agreement.pdf';
-  const AGREEMENT_RETURN_EMAIL = 'eligreen@emyrgengroup.com';
+  const AGREEMENT_RETURN_EMAIL = 'invest@emyrgengroup.com';
 
   /* ── Open / Close ────────────────────────────── */
   function openWizard() {
@@ -8308,6 +8427,25 @@ Securities Act of 1933. Consult your own attorney, tax advisor, and financial ad
     }
   });
 
+  const entitySkipBtn = document.getElementById('wizEntitySkip');
+  if (entitySkipBtn) {
+    entitySkipBtn.addEventListener('click', () => {
+      ['entity_name','entity_type','entity_jurisdiction','signer_name','signer_title'].forEach(name => {
+        STATE[name] = '';
+        const field = document.querySelector(`[name="${name}"]`);
+        if (field) field.value = '';
+      });
+      STATE.investor_type = 'individual';
+      const investorTypeGroup = document.querySelector('.wiz-choices[data-name="investor_type"]');
+      if (investorTypeGroup) {
+        investorTypeGroup.querySelectorAll('.wiz-choice').forEach(choice => {
+          choice.classList.toggle('is-selected', choice.dataset.value === 'individual');
+        });
+      }
+      showStep(4);
+    });
+  }
+
   /* ── Validation ─────────────────────────────── */
   function validateStep(n) {
     let ok = true;
@@ -8346,6 +8484,21 @@ Securities Act of 1933. Consult your own attorney, tax advisor, and financial ad
   }
 
   /* ── Navigation ─────────────────────────────── */
+  function renderProgressMeta(n) {
+    if (!progressMetaEl) return;
+    if (n === 'confirm') {
+      progressMetaEl.classList.add('is-confirm');
+      progressMetaEl.textContent = 'Submission received';
+      stepNumEl = null;
+      stepNameEl = null;
+      return;
+    }
+    progressMetaEl.classList.remove('is-confirm');
+    progressMetaEl.innerHTML = `Step <strong id="wizStepNum">${n}</strong> of 6 · <span id="wizStepName">${escapeHtml(STEP_NAMES[n] || '')}</span>`;
+    stepNumEl = document.getElementById('wizStepNum');
+    stepNameEl = document.getElementById('wizStepName');
+  }
+
   function showStep(n) {
     overlay.querySelectorAll('.wiz-step').forEach(s => s.classList.remove('is-active'));
     const step = overlay.querySelector(`.wiz-step[data-step="${n}"]`);
@@ -8360,9 +8513,8 @@ Securities Act of 1933. Consult your own attorney, tax advisor, and financial ad
     });
 
     // Header meta
-    if (typeof n === 'number') {
-      stepNumEl.textContent = n;
-      stepNameEl.textContent = STEP_NAMES[n] || '';
+    if (typeof n === 'number' || n === 'confirm') {
+      renderProgressMeta(n);
     }
 
     // Buttons
@@ -8483,7 +8635,7 @@ Securities Act of 1933. Consult your own attorney, tax advisor, and financial ad
       ...STATE,
       submitted_at: new Date().toISOString(),
       source_page: location.href,
-      page_version: 'v19.36'
+      page_version: 'v19.37'
     };
 
     try {
@@ -8508,7 +8660,7 @@ Securities Act of 1933. Consult your own attorney, tax advisor, and financial ad
 
     } catch (err) {
       console.error('Investor signup submit error:', err);
-      alert('Submission could not be completed. Please contact eligreen@emyrgengroup.com directly.');
+      alert('Submission could not be completed. Please contact invest@emyrgengroup.com directly.');
       nextBtn.disabled = false;
       backBtn.disabled = false;
       nextBtn.textContent = 'Submit & Continue to Agreement';
@@ -8547,8 +8699,6 @@ Thank you.`;
       dot.classList.remove('is-current');
       dot.classList.add('is-done');
     });
-    stepNumEl.textContent = '✓';
-    stepNameEl.textContent = 'Submission received';
   }
 
   // Initialize step 1
