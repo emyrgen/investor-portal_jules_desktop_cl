@@ -7234,7 +7234,7 @@
     </div>
   </div>
   <div class="signup-helper">Use email or phone — at least one contact method is required.</div>
-  <button class="signup-entry-cta" id="simpleSignupSubmit" type="submit">Submit Info &amp; Download Agreement</button>
+  <button class="signup-entry-cta" id="simpleSignupSubmit" type="submit">Download Investment Agreement</button>
   <div class="signup-status" id="simpleSignupStatus" role="status" aria-live="polite" hidden></div>
 </form>
 <div class="signup-return-panel">
@@ -7468,21 +7468,6 @@ Securities Act of 1933. Consult your own attorney, tax advisor, and financial ad
   function setError(el, show) {
     if (el) el.classList.toggle('is-error', !!show);
   }
-  function buildSignupMailto(name, email, phone) {
-    const subject = 'EMYRGEN Investment Agreement Download';
-    const body = [
-      'Hello EMYRGEN,',
-      '',
-      'I downloaded the EMYRGEN Investment Agreement and would like to review/sign it.',
-      '',
-      `Investor name: ${name}`,
-      `Email: ${email || '—'}`,
-      `Phone: ${phone || '—'}`,
-      '',
-      'Thank you.'
-    ].join('\n');
-    return `mailto:${INVEST_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  }
   function buildSignedMailto(name, email, phone) {
     const subject = 'Signed EMYRGEN Investment Agreement';
     const contact = [email, phone].filter(Boolean).join(' / ');
@@ -7502,6 +7487,8 @@ Securities Act of 1933. Consult your own attorney, tax advisor, and financial ad
     const a = document.createElement('a');
     a.href = AGREEMENT_URL;
     a.download = 'EMYRGEN_Investment_Agreement.pdf';
+    a.target = '_blank';
+    a.rel = 'noopener';
     document.body.appendChild(a);
     a.click();
     a.remove();
@@ -7528,7 +7515,6 @@ Securities Act of 1933. Consult your own attorney, tax advisor, and financial ad
       statusEl.textContent = '';
       statusEl.classList.remove('is-error');
     }
-    window.location.href = buildSignupMailto(name, email, phone);
   });
 })();
 </script>
